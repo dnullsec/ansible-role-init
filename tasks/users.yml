@@ -1,0 +1,22 @@
+- block:
+  - name: "Users - creating normal users"
+    user:
+      name: "{{ item }}"
+    with_items: "{{ role_init.users.normal }}"
+
+  - name: "Users - creating sudo users"
+    user:
+      name: "{{ item }}"
+      group: wheel
+      append: yes 
+    with_items: "{{ role_init.users.sudo }}"
+
+  - name: "Users - setting keys"
+    authorized_key:
+      user: "{{ item }}"
+      state: present
+      key: "{{ lookup('file', '{{ role_init.users.keys_path }}/{{ item }}.pub') }}"
+    with_items:
+    - "{{ role_init.users.sudo }}"
+    - "{{ role_init.users.normal }}"
+  tags: init_users

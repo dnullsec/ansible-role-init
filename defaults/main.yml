@@ -4,4 +4,8 @@ role_init:
   # - vim # TODO: fix problems
   - git
   - nmap
-
+  users:
+    keys_path: "./keys" 
+    normal: []
+    sudo:
+    - crown

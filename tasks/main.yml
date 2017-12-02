@@ -1,7 +1,6 @@
 - block:
-  - name: "INIT"
+  - name: "Init raw"
     raw: "sudo {{ansible_pkg_mgr}} install python2 python-{{ansible_pkg_mgr}} python-simplejson libselinux-python -y -q"
-
 
   - name: "Locale - add to /etc/profile"
     lineinfile:
@@ -10,9 +9,10 @@
       line: export LC_ALL="{{ role_init.locale }}"
     ignore_errors: True
 
-
   - name: "Init - install deps"
     package:
       name: "{{ item }}"
       state: latest
     with_items: "{{ role_init.deps }}"
+
+  - include: users.yml
