@@ -7,7 +7,7 @@
   - name: "Users - creating sudo users"
     user:
       name: "{{ item }}"
-      group: wheel
+      groups: wheel
       append: yes 
     with_items: "{{ role_init.users.sudo }}"
 

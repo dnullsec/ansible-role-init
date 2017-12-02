@@ -2,8 +2,18 @@ role_init:
   locale: "en_US.UTF-8"
   deps:
   # - vim # TODO: fix problems
+  - logrotate
+  #- policycoreutils-python
+  - python
+  #- python-devel
+  - python-virtualenv
+  #- redhat-rpm-config
+  #- systemd-devel
+  #- systemd-python
   - git
   - nmap
+
+
   users:
     keys_path: "./keys" 
     normal: []
