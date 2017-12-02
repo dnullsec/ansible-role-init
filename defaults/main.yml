@@ -1,0 +1,7 @@
+role_init:
+  locale: "en_US.UTF-8"
+  deps:
+  # - vim # TODO: fix problems
+  - git
+  - nmap
+
