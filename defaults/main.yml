@@ -11,7 +11,8 @@ role_init:
   #- systemd-devel
   #- systemd-python
   - git
-  - nmap
+  - nmap 
+  - nginx
 
 
   users:
