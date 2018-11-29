@@ -14,5 +14,6 @@
       name: "{{ item }}"
       state: latest
     with_items: "{{ role_init.deps }}"
+    tags: init_deps
 
   - include: users.yml

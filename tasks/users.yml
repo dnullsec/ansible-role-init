@@ -20,3 +20,15 @@
     - "{{ role_init.users.sudo }}"
     - "{{ role_init.users.normal }}"
   tags: init_users
+
+- name: "Creating no password sudo configuration under /etc/sudoers.d"
+  template:
+    src: "sudoers.j2"
+    dest: "/etc/sudoers.d/{{ item }}"
+    validate: "visudo -cf %s"
+    owner: root
+    group: root
+    mode: "0440"
+  with_items:
+  - "{{ role_init.users.sudo }}"
+  tags: init_sudo

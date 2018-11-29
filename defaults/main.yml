@@ -1,22 +1,21 @@
 role_init:
   locale: "en_US.UTF-8"
   deps:
-  # - vim # TODO: fix problems
   - logrotate
-  #- policycoreutils-python
   - python
-  #- python-devel
+  - policycoreutils-python
   - python-virtualenv
+  - git
+  - stress
+  # - vim # TODO: fix problems
+  #- python-devel
   #- redhat-rpm-config
   #- systemd-devel
   #- systemd-python
-  - git
-  - nmap 
-  - nginx
-
+  #- nmap
+  #- nginx
 
   users:
     keys_path: "./keys" 
     normal: []
-    sudo:
-    - crown
+    sudo: []
